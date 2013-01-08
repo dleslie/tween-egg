@@ -20,6 +20,7 @@
     (linear-select . tween#linear-select)
     (interpolate . tween#interpolate)
     (tween . tween#tween)
+    (rationalize . tween#rationalize)
     (factorial . tween#factorial)
     (factorial* . tween#factorial*))
   (list)

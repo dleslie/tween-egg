@@ -11,7 +11,7 @@
      (expt percent 2))
     ((eq? direction 'out)
      (* percent (- 2 percent)))
-    ((eq? direction 'inout)u
+    ((eq? direction 'inout)
      (let ((p (* percent 2)))
        (if (< p 1)
            (* 0.5 (expt percent 2))

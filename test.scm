@@ -156,3 +156,25 @@
 (assert (= (tween bounce-ease 'inout 0 10 0) 0))
 (assert (= (rationalize 4 (tween bounce-ease 'inout 0 10 1) 0.00001) 10))
 (assert (= (rationalize 4 (tween bounce-ease 'inout 0 10 0.5) 0.00001) 5.0))
+
+;; Selectors
+
+(define test-set (list->vector '(0 1 2 3 4 5 6 7 8 9 10)))
+
+;; Linear select
+
+(assert (= (linear-select test-set 0) 0))
+(assert (= (linear-select test-set 0.5) 5.0))
+(assert (= (linear-select test-set 1) 10.0))
+
+;; Bezier select
+
+(assert (= (bezier-select test-set 0) 0))
+(assert (= (bezier-select test-set 0.5) 5.0))
+(assert (= (bezier-select test-set 1) 10.0))
+
+;; Catmullrom select
+
+(assert (= (catmullrom-select test-set 0) 0))
+(assert (= (catmullrom-select test-set 0.5) 5.0))
+(assert (= (catmullrom-select test-set 1) 10.0))
