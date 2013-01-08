@@ -1,0 +1,11 @@
+;;;; tween.setup -*- Scheme -*-
+(define compile-options "-O3 -C -O3")
+(define link-options "")
+
+(compile -s -d1 tween.scm -j tween ,link-options ,compile-options)
+(compile -s tween.import.scm -d0 ,link-options ,compile-options)
+
+(install-extension
+ 'tween
+ '("tween.so" "tween.import.so")
+ '((version 1.0)))

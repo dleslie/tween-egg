@@ -1,0 +1,7 @@
+;;;; opengl.setup -*- Scheme -*-
+
+((license "BSD")
+ (category math)
+ (author "Daniel J. Leslie")
+ (synopsis "Tweens")
+ (doc-from-wiki))
