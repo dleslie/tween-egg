@@ -178,3 +178,31 @@
 (assert (= (catmullrom-select test-set 0) 0))
 (assert (= (catmullrom-select test-set 0.5) 5.0))
 (assert (= (catmullrom-select test-set 1) 10.0))
+
+;; Test everything!
+
+(define test-percents '(0.0 0.1 0.2 0.3 0.4 0.5 0.66 0.75 0.95 1.0))
+(define test-eases (list linear-ease quadratic-ease cubic-ease quartic-ease quintic-ease sinusoidal-ease exponential-ease circular-ease elastic-ease back-ease bounce-ease))
+(define (test-ease ease start stop)
+  (let ((in '())
+        (out '())
+        (inout '()))
+    (map (lambda (p)
+           (set! in (cons (rationalize 2 (tween ease 'in start stop p)) in))
+           (set! out (cons (rationalize 2 (tween ease 'out start stop p)) out))
+           (set! inout (cons (rationalize 2 (tween ease 'inout start stop p)) inout))
+           )
+         (reverse test-percents))
+    `((in . ,in) (out . ,out) (inout . ,inout))))
+
+(define (test-select selector values)
+  (map (lambda (p)
+         (rationalize 2 (interpolate selector values p)))
+       test-percents))
+
+(map (lambda (e) (display (list e 0 10 (test-ease e 0 10))) (newline)) 
+     (list linear-ease quadratic-ease cubic-ease quartic-ease quintic-ease sinusoidal-ease exponential-ease circular-ease elastic-ease back-ease bounce-ease))
+
+(let ((v '(0 1 2 3 4 5 10 15 20 25 30 35 40 45 50)))
+  (map (lambda (s) (display (list s v (test-select s (list->vector v)))))
+       (list linear-select bezier-select catmullrom-select)))
