@@ -1,54 +1,59 @@
-Tween Egg
-==========
+[[tags: tween game math]]
+
+== Tween Egg
 
 Provides a (loose) port of Tween.js for Chicken Scheme. Other Schemes may work, though perhaps with some minor alterations.
 
-General Functions
-----------
+[[toc:]]
 
-**(factorial n)**
+== Repository
+
+The latest versions are always available on [https://github.com/dleslie/tween-egg|GitHub].
+
+== General Functions
+
+<procedure>(factorial n)</procedure>
 
 Memoized implementation of the factorial method. Provides O(n) computation, albeit with an O(1) average case. Requires O(n) memory.
 
-You may reset the memory by whiping out the cache: `(set! factorial* (make-vector 1 1))`
+You may reset the memory by whiping out the cache: {{(set! factorial* (make-vector 1 1))}}
 
-**(rationalize count value #!optional (epsilon 0))**
+<procedure>(rationalize count value #!optional (epsilon 0))</procedure>
 
 Sometimes its useful to truncate the number of decimal places a floating point number is exact to. Sometimes it's also useful to do so after applying an epsilon value to smudge for floating point computation errors. This function can perform both operations.
 
 Note that it is *not* a function to force a number to a particular number of significant digits.
 
-**(tween easing-function direction start stop percent)**
+<procedure>(tween easing-function direction start stop percent)</procedure>
 
-Given an `easing-function` and a `direction`, this produces a value between `start` and `stop` that is representative of the provided `percent`.
+Given an {{easing-function}} and a {{direction}}, this produces a value between {{start}} and {{stop}} that is representative of the provided {{percent}}.
 
-`direction` may be one of the following symbols:
+{{direction}} may be one of the following symbols:
 * in
 * out
 * inout
 
-`percent` must be a value between 0.0 and 1.0.
+{{percent}} must be a value between 0.0 and 1.0.
 
-`start` and `stop` must be numbers.
+{{start}} and {{stop}} must be numbers.
 
-`easing-function` be of the form `direction -> percent -> percent`.
+{{easing-function}} be of the form {{direction -> percent -> percent}}.
 
 Various easing functions are provided by this egg, see below.
 
-**(interpolate selector-function value-vector percent)**
+<procedure>(interpolate selector-function value-vector percent)</procedure>
 
-Given a `selector-function` this produces a value within the range of values defined in `value-vector` that is representative of the provided `percent`.
+Given a {{selector-function}} this produces a value within the range of values defined in {{value-vector}} that is representative of the provided {{percent}}.
 
-`value-vector` must be a vector of numbers.
+{{value-vector}} must be a vector of numbers.
 
-`percent` must be a value between 0.0 and 1.0.
+{{percent}} must be a value between 0.0 and 1.0.
 
-`selector-function` must be of the form `value-vector -> percent -> number`
+{{selector-function}} must be of the form {{value-vector -> percent -> number}}
 
 Various selector functions are provided by this egg, see below.
 
-Easing Functions
-----------
+== Easing Functions
 
 The following easing functions are available:
 
@@ -64,8 +69,7 @@ The following easing functions are available:
 * back-ease 
 * bounce-ease
 
-Selector Functions
-----------
+== Selector Functions
 
 The following interpolation functions are available:
 
@@ -73,10 +77,9 @@ The following interpolation functions are available:
 * bezier-select
 * catmullrom-select
 
-Example
-----------
+== Example
 
-```scheme
+<enscript hilight="scheme">
 (define test-percents '(0.0 0.1 0.2 0.3 0.4 0.5 0.66 0.75 0.95 1.0))
 
 (define (test-ease ease start stop)
@@ -156,10 +159,13 @@ Example
 (#<procedure (tween#catmullrom-select v83 p84)> 
              (0 1 2 3 4 5 10 15 20 25 30 35 40 45 50) 
              (0.0 1.72 4.08 4.37 11.4 15.0 26.77 35.0 47.1 50.0))
-```
+</enscript>
 
-License
-----------
+== Author
+
+Dan Leslie (dan@ironoxide.ca)
+
+== License
     
     Copyright 2012 Daniel J. Leslie. All rights reserved.
     
