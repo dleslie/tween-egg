@@ -2,6 +2,7 @@
 
 ((license "BSD")
  (category math)
+ (test-depends test)
  (author "Daniel J. Leslie")
  (synopsis "Tweens")
  (doc-from-wiki))
