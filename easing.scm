@@ -27,7 +27,7 @@
      (expt percent 3))
     ((eq? direction 'out)
      (let ((p (- percent 1)))
-       (+ 1 (* (expt p 3)))))
+       (+ 1 (expt p 3))))
     ((eq? direction 'inout)
      (let ((p (* percent 2)))
        (if (< p 1)
@@ -150,7 +150,7 @@
                  (sin (* (- p 1 s) 2 pi invp)))
               (+ 1 (* a 0.5 
                       (expt 2 (* -10 (- p 1)))
-                      (sin (* (- p 1 s) 2 pi invpi))))))))))
+                      (sin (* (- p 1 s) 2 pi invp))))))))))
   (linear-ease 
    direction
    (cond
