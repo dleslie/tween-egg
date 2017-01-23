@@ -87,22 +87,19 @@
   (linear-ease
    direction
    (cond
+    ((= percent 0) 0)
+    ((= percent 1) 1)
     ((eq? direction 'in)
-     (if (= percent 0) 
-         0
-         (expt 1024 (- percent 1))))
+     (expt 1024 (- percent 1)))
     ((eq? direction 'out)
-     (if (= percent 1)
-         1
-         (- 1 (expt 2 (* -10 percent)))))
+     (- 1 (expt 2 (* -10 percent))))
     ((eq? direction 'inout)
-     (cond
-      ((= percent 0) 0)
-      ((= percent 1) 1)
-      ((< (* percent 2) 1)
-       (* 0.5 (expt 1024 (- (* percent 2) 1))))
-      (else
-       (* 0.5 (- 2 (expt 2 (* -10 (- (* percent 2) 1)))))))))))
+     (let ((p (* percent 2)))
+       (cond
+	((< p 1)
+	 (* 0.5 (expt 1024 (- p 1))))
+	(else
+	 (* 0.5 (- 2 (expt 2 (* -10 (- p 1))))))))))))
 
 (define (circular-ease direction percent)
   (assert (or (eq? direction 'in) (eq? direction 'out) (eq? direction 'inout)))
