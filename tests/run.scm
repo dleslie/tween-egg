@@ -180,7 +180,7 @@
  "Elastic Ease InOut"
  (test "Begin" 0.0 (tween elastic-ease 'inout 0.0 10.0 0.0))
  (test "End" 10.0 (rationalize 4 (tween elastic-ease 'inout 0.0 10.0 1) 0.00001))
- (test "Middle" 9.0066 (rationalize 4 (tween elastic-ease 'inout 0.0 10.0 0.5) 0.00001)))
+ (test "Middle" 5.0 (rationalize 4 (tween elastic-ease 'inout 0.0 10.0 0.5) 0.00001)))
 
 ;; Back ease
  
