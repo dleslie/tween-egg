@@ -1,3 +1,5 @@
+;;; selectors.scm -*- mode: scheme; geiser-scheme-implementation: chicken -*-
+
 (define (linear-select v p)
   (assert (and (>= p 0) (<= p 1)
                (vector? v)))

@@ -1,3 +1,5 @@
+;;; run.scm -*- mode: scheme; geiser-scheme-implementation: chicken -*-
+
 (use tween test)
 
 (test "Memoized factorial should work" 3628800 (factorial 10))
@@ -188,13 +190,13 @@
  "Back Ease In"
  (test "Begin" 0.0 (tween back-ease 'in 0.0 10.0 0.0))
  (test "End" 10.0 (rationalize 4 (tween back-ease 'in 0.0 10.0 1) 0.00001))
- (test "Middle" 0.0 (rationalize 4 (tween back-ease 'in 0.0 10.0 0.5) 0.00001)))
+ (test "Middle" -0.8769 (rationalize 4 (tween back-ease 'in 0.0 10.0 0.5) 0.00001)))
 
 (test-group
  "Back Ease Out"
  (test "Begin" 0.0 (tween back-ease 'out 0.0 10.0 0.0))
- (test "End" 10.0 (rationalize 4 (tween back-ease 'out 0.0 10.0 1) 0.00001))
- (test "Middle" 10.0 (rationalize 4 (tween back-ease 'out 0.0 10.0 0.5) 0.00001)))
+ (test "End" 10.8769 (rationalize 4 (tween back-ease 'out 0.0 10.8769 1) 0.00001))
+ (test "Middle" 10.8769 (rationalize 4 (tween back-ease 'out 0.0 10.0 0.5) 0.00001)))
 
 (test-group
  "Back Ease InOut"

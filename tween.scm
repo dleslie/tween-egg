@@ -1,3 +1,5 @@
+;;; easing.scm -*- mode: scheme; geiser-scheme-implementation: chicken -*-
+
 (module 
  tween *
  (import scheme chicken)
