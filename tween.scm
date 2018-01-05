@@ -15,7 +15,7 @@
    (if (>= 1 n) 1
        (vector-ref factorial* n)))
 
- (define (rationalize count value #!optional (epsilon 0))
+ (define (limit-decimal count value #!optional (epsilon 0))
    (let ((f (expt 10 count))
          (n (+ value epsilon)))
      (+ (truncate n)

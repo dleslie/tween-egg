@@ -1,0 +1,9 @@
+;;; tween.egg -*- mode: scheme; geiser-scheme-implementation: chicken -*-
+
+((components (extension tween))
+ (version "1.2.0")
+ (license "BSD")
+ (category math)
+ (test-dependencies test)
+ (author "Daniel J. Leslie")
+ (synopsis "Tweens"))

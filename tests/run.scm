@@ -2,8 +2,8 @@
 
 (use tween test)
 
-(test "Memoized factorial should work" 3628800 (factorial 10))
-(test "Rationalize works" 1.0 (rationalize 4 0.99999998 0.0001))
+(test "memoized factorial should work" 3628800 (factorial 10))
+(test "limit-Decimal works" 1.0 (limit-decimal 4 0.99999998 0.0001))
 
 ;; Linear ease
 
@@ -109,120 +109,120 @@
 (test-group
  "Sinusoidal Ease In"
  (test "Begin" 0.0 (tween sinusoidal-ease 'in 0.0 10.0 0.0))
- (test "End" 10.0 (rationalize 4 (tween sinusoidal-ease 'in 0.0 10.0 1) 0.00001))
- (test "Middle" 2.9289 (rationalize 4 (tween sinusoidal-ease 'in 0.0 10.0 0.5) 0.00001)))
+ (test "End" 10.0 (limit-decimal 4 (tween sinusoidal-ease 'in 0.0 10.0 1) 0.00001))
+ (test "Middle" 2.9289 (limit-decimal 4 (tween sinusoidal-ease 'in 0.0 10.0 0.5) 0.00001)))
 
 (test-group
  "Sinusoidal Ease Out"
  (test "Begin" 0.0 (tween sinusoidal-ease 'out 0.0 10.0 0.0))
- (test "End" 10.0 (rationalize 4 (tween sinusoidal-ease 'out 0.0 10.0 1) 0.00001))
- (test "Middle" 7.0710 (rationalize 4 (tween sinusoidal-ease 'out 0.0 10.0 0.5) 0.00001)))
+ (test "End" 10.0 (limit-decimal 4 (tween sinusoidal-ease 'out 0.0 10.0 1) 0.00001))
+ (test "Middle" 7.0710 (limit-decimal 4 (tween sinusoidal-ease 'out 0.0 10.0 0.5) 0.00001)))
 
 (test-group
  "Sinusoidal Ease InOut"
  (test "Begin" 0.0 (tween sinusoidal-ease 'inout 0.0 10.0 0.0))
- (test "End" 10.0 (rationalize 4 (tween sinusoidal-ease 'inout 0.0 10.0 1) 0.00001))
- (test "Middle" 5.0 (rationalize 4 (tween sinusoidal-ease 'inout 0.0 10.0 0.5) 0.00001)))
+ (test "End" 10.0 (limit-decimal 4 (tween sinusoidal-ease 'inout 0.0 10.0 1) 0.00001))
+ (test "Middle" 5.0 (limit-decimal 4 (tween sinusoidal-ease 'inout 0.0 10.0 0.5) 0.00001)))
 
 ;; Exponential ease
  
 (test-group
  "Exponential Ease In"
  (test "Begin" 0.0 (tween exponential-ease 'in 0.0 10.0 0.0))
- (test "End" 10.0 (rationalize 4 (tween exponential-ease 'in 0.0 10.0 1) 0.00001))
- (test "Middle" 0.3125 (rationalize 4 (tween exponential-ease 'in 0.0 10.0 0.5) 0.00001)))
+ (test "End" 10.0 (limit-decimal 4 (tween exponential-ease 'in 0.0 10.0 1) 0.00001))
+ (test "Middle" 0.3125 (limit-decimal 4 (tween exponential-ease 'in 0.0 10.0 0.5) 0.00001)))
 
 (test-group
  "Exponential Ease Out"
  (test "Begin" 0.0 (tween exponential-ease 'out 0.0 10.0 0.0))
- (test "End" 10.0 (rationalize 4 (tween exponential-ease 'out 0.0 10.0 1) 0.00001))
- (test "Middle" 9.6875 (rationalize 4 (tween exponential-ease 'out 0.0 10.0 0.5) 0.00001)))
+ (test "End" 10.0 (limit-decimal 4 (tween exponential-ease 'out 0.0 10.0 1) 0.00001))
+ (test "Middle" 9.6875 (limit-decimal 4 (tween exponential-ease 'out 0.0 10.0 0.5) 0.00001)))
 
 (test-group
  "Exponential Ease InOut"
  (test "Begin" 0.0 (tween exponential-ease 'inout 0.0 10.0 0.0))
- (test "End" 10.0 (rationalize 4 (tween exponential-ease 'inout 0.0 10.0 1) 0.00001))
- (test "Middle" 5.0 (rationalize 4 (tween exponential-ease 'inout 0.0 10.0 0.5) 0.00001)))
+ (test "End" 10.0 (limit-decimal 4 (tween exponential-ease 'inout 0.0 10.0 1) 0.00001))
+ (test "Middle" 5.0 (limit-decimal 4 (tween exponential-ease 'inout 0.0 10.0 0.5) 0.00001)))
 
 ;; Circular ease
  
 (test-group
  "Circular Ease In"
  (test "Begin" 0.0 (tween circular-ease 'in 0.0 10.0 0.0))
- (test "End" 10.0 (rationalize 4 (tween circular-ease 'in 0.0 10.0 1) 0.00001))
- (test "Middle" 1.3397 (rationalize 4 (tween circular-ease 'in 0.0 10.0 0.5) 0.00001)))
+ (test "End" 10.0 (limit-decimal 4 (tween circular-ease 'in 0.0 10.0 1) 0.00001))
+ (test "Middle" 1.3397 (limit-decimal 4 (tween circular-ease 'in 0.0 10.0 0.5) 0.00001)))
 
 (test-group
  "Circular Ease Out"
  (test "Begin" 0.0 (tween circular-ease 'out 0.0 10.0 0.0))
- (test "End" 10.0 (rationalize 4 (tween circular-ease 'out 0.0 10.0 1) 0.00001))
- (test "Middle" 8.6602 (rationalize 4 (tween circular-ease 'out 0.0 10.0 0.5) 0.00001)))
+ (test "End" 10.0 (limit-decimal 4 (tween circular-ease 'out 0.0 10.0 1) 0.00001))
+ (test "Middle" 8.6602 (limit-decimal 4 (tween circular-ease 'out 0.0 10.0 0.5) 0.00001)))
 
 (test-group
  "Circular Ease InOut"
  (test "Begin" 0.0 (tween circular-ease 'inout 0.0 10.0 0.0))
- (test "End" 10.0 (rationalize 4 (tween circular-ease 'inout 0.0 10.0 1) 0.00001))
- (test "Middle" 5.0 (rationalize 4 (tween circular-ease 'inout 0.0 10.0 0.5) 0.00001)))
+ (test "End" 10.0 (limit-decimal 4 (tween circular-ease 'inout 0.0 10.0 1) 0.00001))
+ (test "Middle" 5.0 (limit-decimal 4 (tween circular-ease 'inout 0.0 10.0 0.5) 0.00001)))
 
 ;; Elastic ease
  
 (test-group
  "Elastic Ease In"
  (test "Begin" 0.0 (tween elastic-ease 'in 0.0 10.0 0.0))
- (test "End" 10.0 (rationalize 4 (tween elastic-ease 'in 0.0 10.0 1) 0.00001))
- (test "Middle" 0.0 (rationalize 4 (tween elastic-ease 'in 0.0 10.0 0.5) 0.00001)))
+ (test "End" 10.0 (limit-decimal 4 (tween elastic-ease 'in 0.0 10.0 1) 0.00001))
+ (test "Middle" 0.0 (limit-decimal 4 (tween elastic-ease 'in 0.0 10.0 0.5) 0.00001)))
 
 (test-group
  "Elastic Ease Out"
  (test "Begin" 0.0 (tween elastic-ease 'out 0.0 10.0 0.0))
- (test "End" 10.0 (rationalize 4 (tween elastic-ease 'out 0.0 10.0 1) 0.00001))
- (test "Middle" 10.0 (rationalize 4 (tween elastic-ease 'out 0.0 10.0 0.5) 0.00001)))
+ (test "End" 10.0 (limit-decimal 4 (tween elastic-ease 'out 0.0 10.0 1) 0.00001))
+ (test "Middle" 10.0 (limit-decimal 4 (tween elastic-ease 'out 0.0 10.0 0.5) 0.00001)))
 
 (test-group
  "Elastic Ease InOut"
  (test "Begin" 0.0 (tween elastic-ease 'inout 0.0 10.0 0.0))
- (test "End" 10.0 (rationalize 4 (tween elastic-ease 'inout 0.0 10.0 1) 0.00001))
- (test "Middle" 5.0 (rationalize 4 (tween elastic-ease 'inout 0.0 10.0 0.5) 0.00001)))
+ (test "End" 10.0 (limit-decimal 4 (tween elastic-ease 'inout 0.0 10.0 1) 0.00001))
+ (test "Middle" 5.0 (limit-decimal 4 (tween elastic-ease 'inout 0.0 10.0 0.5) 0.00001)))
 
 ;; Back ease
  
 (test-group
  "Back Ease In"
  (test "Begin" 0.0 (tween back-ease 'in 0.0 10.0 0.0))
- (test "End" 10.0 (rationalize 4 (tween back-ease 'in 0.0 10.0 1) 0.00001))
- (test "Middle" -0.8769 (rationalize 4 (tween back-ease 'in 0.0 10.0 0.5) 0.00001)))
+ (test "End" 10.0 (limit-decimal 4 (tween back-ease 'in 0.0 10.0 1) 0.00001))
+ (test "Middle" -0.8769 (limit-decimal 4 (tween back-ease 'in 0.0 10.0 0.5) 0.00001)))
 
 (test-group
  "Back Ease Out"
  (test "Begin" 0.0 (tween back-ease 'out 0.0 10.0 0.0))
- (test "End" 10.8769 (rationalize 4 (tween back-ease 'out 0.0 10.8769 1) 0.00001))
- (test "Middle" 10.8769 (rationalize 4 (tween back-ease 'out 0.0 10.0 0.5) 0.00001)))
+ (test "End" 10.8769 (limit-decimal 4 (tween back-ease 'out 0.0 10.8769 1) 0.00001))
+ (test "Middle" 10.8769 (limit-decimal 4 (tween back-ease 'out 0.0 10.0 0.5) 0.00001)))
 
 (test-group
  "Back Ease InOut"
  (test "Begin" 0.0 (tween back-ease 'inout 0.0 10.0 0.0))
- (test "End" 10.0 (rationalize 4 (tween back-ease 'inout 0.0 10.0 1) 0.00001))
- (test "Middle" 5.0 (rationalize 4 (tween back-ease 'inout 0.0 10.0 0.5) 0.00001)))
+ (test "End" 10.0 (limit-decimal 4 (tween back-ease 'inout 0.0 10.0 1) 0.00001))
+ (test "Middle" 5.0 (limit-decimal 4 (tween back-ease 'inout 0.0 10.0 0.5) 0.00001)))
 
 ;; Bounce ease
  
 (test-group
  "Bounce Ease In"
  (test "Begin" 0.0 (tween bounce-ease 'in 0.0 10.0 0.0))
- (test "End" 10.0 (rationalize 4 (tween bounce-ease 'in 0.0 10.0 1) 0.00001))
- (test "Middle" 2.3437 (rationalize 4 (tween bounce-ease 'in 0.0 10.0 0.5) 0.00001)))
+ (test "End" 10.0 (limit-decimal 4 (tween bounce-ease 'in 0.0 10.0 1) 0.00001))
+ (test "Middle" 2.3437 (limit-decimal 4 (tween bounce-ease 'in 0.0 10.0 0.5) 0.00001)))
 
 (test-group
  "Bounce Ease Out"
  (test "Begin" 0.0 (tween bounce-ease 'out 0.0 10.0 0.0))
- (test "End" 10.0 (rationalize 4 (tween bounce-ease 'out 0.0 10.0 1) 0.00001))
- (test "Middle" 7.6562 (rationalize 4 (tween bounce-ease 'out 0.0 10.0 0.5) 0.00001)))
+ (test "End" 10.0 (limit-decimal 4 (tween bounce-ease 'out 0.0 10.0 1) 0.00001))
+ (test "Middle" 7.6562 (limit-decimal 4 (tween bounce-ease 'out 0.0 10.0 0.5) 0.00001)))
 
 (test-group
  "Bounce Ease InOut"
  (test "Begin" 0.0 (tween bounce-ease 'inout 0.0 10.0 0.0))
- (test "End" 10.0 (rationalize 4 (tween bounce-ease 'inout 0.0 10.0 1) 0.00001))
- (test "Middle" 5.0 (rationalize 4 (tween bounce-ease 'inout 0.0 10.0 0.5) 0.00001)))
+ (test "End" 10.0 (limit-decimal 4 (tween bounce-ease 'inout 0.0 10.0 1) 0.00001))
+ (test "Middle" 5.0 (limit-decimal 4 (tween bounce-ease 'inout 0.0 10.0 0.5) 0.00001)))
 
 ;; Selectors
 
