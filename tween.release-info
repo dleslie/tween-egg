@@ -1,5 +1,5 @@
 ;;; tween.release-info -*- mode: scheme; geiser-scheme-implementation: chicken -*-
 
 (repo git "git@github.com:dleslie/tween-egg.git")
-(uri targz "https://github.com/dleslie/tween-egg/tarball/{egg-release}")
-(release "1.2.0")
+(uri targz "https://github.com/dleslie/tween-egg/tarball/chicken5/{egg-release}")
+(release "2.0.0")
