@@ -12,7 +12,7 @@ Memoized implementation of the factorial method. Provides O(n) computation, albe
 
 You may reset the memory by whiping out the cache: `(set! factorial* (make-vector 1 1))`
 
-**(rationalize count value #!optional (epsilon 0))**
+**(limit-decimal count value #!optional (epsilon 0))**
 
 Sometimes its useful to truncate the number of decimal places a floating point number is exact to. Sometimes it's also useful to do so after applying an epsilon value to smudge for floating point computation errors. This function can perform both operations.
 
@@ -84,9 +84,9 @@ Example
         (out '())
         (inout '()))
     (map (lambda (p)
-           (set! in (cons (rationalize 2 (tween ease 'in start stop p)) in))
-           (set! out (cons (rationalize 2 (tween ease 'out start stop p)) out))
-           (set! inout (cons (rationalize 2 (tween ease 'inout start stop p)) inout))
+           (set! in (cons (limit-decimal 2 (tween ease 'in start stop p)) in))
+           (set! out (cons (limit-decimal 2 (tween ease 'out start stop p)) out))
+           (set! inout (cons (limit-decimal 2 (tween ease 'inout start stop p)) inout))
            )
          (reverse test-percents))
     `((in . ,in) (out . ,out) (inout . ,inout))))
