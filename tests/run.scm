@@ -1,6 +1,6 @@
 ;;; run.scm -*- mode: scheme; geiser-scheme-implementation: chicken -*-
 
-(use tween test)
+(import tween test)
 
 (test "memoized factorial should work" 3628800 (factorial 10))
 (test "limit-Decimal works" 1.0 (limit-decimal 4 0.99999998 0.0001))
