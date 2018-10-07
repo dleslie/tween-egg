@@ -2,7 +2,10 @@
 
 (module 
  tween *
- (import scheme chicken)
+ (import (except scheme rationalize))
+ (cond-expand
+       (chicken-4 (import chicken))
+       (chicken-5 (import (chicken base))))
 
  (define factorial* (make-vector 1 1))
  (define (factorial n)
