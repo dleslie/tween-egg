@@ -1,6 +1,8 @@
 ;;; run.scm -*- mode: scheme; geiser-scheme-implementation: chicken -*-
 
-(use tween test)
+(cond-expand
+      (chicken-4 (use tween test))
+      (chicken-5 (import (chicken string) tween test)))
 
 (test "Memoized factorial should work" 3628800 (factorial 10))
 (test "Rationalize works" 1.0 (rationalize 4 0.99999998 0.0001))
